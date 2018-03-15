@@ -57,7 +57,7 @@ class Image(object):
         self._cell_num = 0
         self._code_line_count = 0
 
-        self.add_memory_cell('0xffffffff_ffffffff', transparent=True)
+        self.add_memory_cell('0x00000000_00000000', transparent=True)
         self.add_memory_cell('...', transparent=True)
 
     def add_memory_cell(self, value, transparent=False):
@@ -100,7 +100,7 @@ class Image(object):
 
     def save(self):
         self.add_memory_cell('...', transparent=True)
-        self.add_memory_cell('0x00000000_00000000', transparent=True)
+        self.add_memory_cell('0xffffffff_ffffffff', transparent=True)
         self._svg_str += SVG_FOOTER
         with open('fig.svg', 'w') as f:
             f.write(self._svg_str)
